@@ -14,6 +14,7 @@ app.get('/image', (req, res) => {
     console.log(req['headers']);
 
     res.header("Accept-CH", "UA-Full-Version, UA-Platform, UA-Platform-Version, UA-Arch, UA-Model");
+    res.set("Accept-CH", "UA-Full-Version, UA-Platform, UA-Platform-Version, UA-Arch, UA-Model");
 
     console.log("Response header");
     console.log(res.get("Accept-CH"));
