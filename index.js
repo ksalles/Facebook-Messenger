@@ -16,7 +16,7 @@ app.get('/image', (req, res) => {
     res.header("Accept-CH", "UA-Full-Version, UA-Platform, UA-Platform-Version, UA-Arch, UA-Model");
 
     console.log("Response header");
-    console.log(res.headers);
+    console.log(res.get("Accept-CH"));
 
     res.redirect('/image2');
 });
