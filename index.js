@@ -4,7 +4,16 @@
 const
   express = require('express'),
   bodyParser = require('body-parser'),
-  app = express().use(bodyParser.json()); // creates express http server
+  app = express().use(bodyParser.json());
+  csp = require('csp-header');
+
+csp({
+    policies: {
+        'default-src': [csp.SELF, '*'],
+        'font-src': [csp.SELF, 'data:'],
+        'img-src': [csp.SELF, 'data:'],
+    }
+});
 
 app.post('/webhook', (req, res) => {  
 
@@ -38,5 +47,6 @@ app.get('/image', (req, res) => {
     res.sendFile(path);
 });
 
-// Sets server port and logs message on success
+console.log('View port : ' + process.env.PORT);
+
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
