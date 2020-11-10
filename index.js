@@ -5,15 +5,7 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
-  csp = require('csp-header');
 
-csp({
-    policies: {
-        'default-src': [csp.SELF, '*'],
-        'font-src': [csp.SELF, 'data:'],
-        'img-src': [csp.SELF, 'data:'],
-    }
-});
 
 app.post('/webhook', (req, res) => {  
 
@@ -43,8 +35,9 @@ app.post('/webhook', (req, res) => {
 // Adds support for GET requests to our webhook
 app.get('/image', (req, res) => {
     console.log("Call 1 ...");
-    var path = __dirname + '\\images\\image.gif';
-    res.sendFile(path);
+    response.json({ 
+        request: req
+      });
 });
 
 console.log('View port : ' + process.env.PORT);
