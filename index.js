@@ -35,7 +35,7 @@ app.post('/webhook', (req, res) => {
 // Adds support for GET requests to our webhook
 app.get('/image', (req, res) => {
     console.log("Call 1 ...");
-    response.json({ 
+    res.json({ 
         request: req
       });
 });
