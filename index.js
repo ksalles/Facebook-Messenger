@@ -13,10 +13,10 @@ app.get('/image', (req, res) => {
     console.log("Resquest header");
     console.log(req['headers']);
 
-    res.set("Accept-CH", "UA-Full-Version, UA-Platform, UA-Platform-Version, UA-Arch, UA-Model");
+    res.header("Accept-CH", "UA-Full-Version, UA-Platform, UA-Platform-Version, UA-Arch, UA-Model");
 
     console.log("Response header");
-    console.log(res['headers']);
+    console.log(res.headers);
 
     res.redirect('/image2');
 });
@@ -25,7 +25,7 @@ app.get('/image2', (req, res) => {
     console.log("Call 2 ...");
     console.log("Resquest header");
     console.log(req['headers']);
-    
+
     res.json({ 
         request: req['headers']
       });
