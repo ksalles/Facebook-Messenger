@@ -33,6 +33,7 @@ app.post('/webhook', (req, res) => {
 
 // Adds support for GET requests to our webhook
 app.get('/image', (req, res) => {
+    console.log("Call 1 ...");
     var path = __dirname + '\\images\\image.gif';
     res.sendFile(path);
 });
